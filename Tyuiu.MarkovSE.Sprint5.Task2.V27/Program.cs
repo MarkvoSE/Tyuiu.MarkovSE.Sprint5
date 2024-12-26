@@ -27,7 +27,7 @@ namespace Tyuiu.MarkovSE.Sprint5.Task2.V27
                 Console.WriteLine("* Вычислить его значение при x = 2, результат сохранить в текстовый файл  *");
                 Console.WriteLine("* OutPutFileTask0.txt и вывести на консоль.                               *");
                 Console.WriteLine("*                                                                         *");
-                
+
 
                 Console.WriteLine("***************************************************************************");
                 Console.WriteLine("* ИСХОДНЫЕ ДАННЫЕ:                                                        *");
@@ -53,3 +53,4 @@ namespace Tyuiu.MarkovSE.Sprint5.Task2.V27
             }
         }
     }
+}
