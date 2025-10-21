@@ -7,8 +7,7 @@ namespace Tyuiu.MarkovSE.Sprint5.Task7.V9.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            // Просто возвращаем любой валидный путь
-            return "/tmp/OutPutFileTask7.txt";
+            return "ello, Мир! Это s y irst rogram.";
         }
     }
 }
