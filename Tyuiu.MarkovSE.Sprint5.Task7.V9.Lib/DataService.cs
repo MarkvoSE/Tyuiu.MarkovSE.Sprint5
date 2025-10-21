@@ -7,13 +7,16 @@ namespace Tyuiu.MarkovSE.Sprint5.Task7.V9.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask7.txt";
+            // Исправляем путь для Linux-системы
+            string pathSaveFile = Path.Combine(Directory.GetCurrentDirectory(), "OutPutFileTask7.txt");
+
             FileInfo fileInfo = new FileInfo(pathSaveFile);
             bool fileExists = fileInfo.Exists;
             if (fileExists)
             {
                 File.Delete(pathSaveFile);
             }
+
             string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
