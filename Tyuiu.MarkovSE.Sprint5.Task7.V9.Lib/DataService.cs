@@ -1,4 +1,10 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using tyuiu.cources.programming.interfaces.Sprint5;
+using System.IO;
 
 namespace Tyuiu.MarkovSE.Sprint5.Task7.V9.Lib
 {
@@ -6,32 +12,31 @@ namespace Tyuiu.MarkovSE.Sprint5.Task7.V9.Lib
     {
         public string LoadDataAndSave(string path)
         {
-
-
-            string tempDir = Path.GetTempPath();
-            string fullSaveFile = Path.Combine(tempDir, @"C:\DataSprint5", "OutPutDataFileTask7V9.txt");
-            FileInfo fileInfo = new FileInfo(fullSaveFile);
-
-            if (fileInfo.Exists)
+            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutFileTask7.txt";
+            FileInfo fileInfo = new FileInfo(pathSaveFile);
+            bool fileExists = fileInfo.Exists;
+            if (fileExists)
             {
-                File.Delete(fullSaveFile);
+                File.Delete(pathSaveFile);
             }
-
-
+            string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-
-                    string processedLine = Regex.Replace(line, "[A-Z]", string.Empty);
-
-
-                    File.AppendAllText(fullSaveFile, processedLine + Environment.NewLine);
+                    for (int i = 0; i < line.Length; i++)
+                    {
+                        if (!Char.IsUpper(line[i]))
+                        {
+                            strLine = strLine + line[i];
+                        }
+                    }
+                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
+                    strLine = "";
                 }
             }
-
-            return fullSaveFile;
+            return pathSaveFile;
         }
     }
 }
