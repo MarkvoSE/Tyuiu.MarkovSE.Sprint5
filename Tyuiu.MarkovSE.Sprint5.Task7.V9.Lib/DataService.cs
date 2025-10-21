@@ -7,8 +7,8 @@ namespace Tyuiu.MarkovSE.Sprint5.Task7.V9.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            // Исправляем путь для Linux-системы
-            string pathSaveFile = Path.Combine(Directory.GetCurrentDirectory(), "OutPutFileTask7.txt");
+            // Сохраняем в текущей рабочей директории с правильным путем
+            string pathSaveFile = "OutPutFileTask7.txt";
 
             FileInfo fileInfo = new FileInfo(pathSaveFile);
             bool fileExists = fileInfo.Exists;
@@ -34,7 +34,7 @@ namespace Tyuiu.MarkovSE.Sprint5.Task7.V9.Lib
                     strLine = "";
                 }
             }
-            return pathSaveFile;
+            return Path.GetFullPath(pathSaveFile);
         }
     }
 }
